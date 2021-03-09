@@ -3,6 +3,7 @@ import './App.css';
 import { Container } from 'react-bootstrap';
 import { Route, HashRouter as Router } from 'react-router-dom';
 import axios from 'axios';
+import { Index, Home, Register, ProtectedRoute } from './Pages';
 function App() {
   const [user, setUser] = useState(undefined);
 
@@ -48,6 +49,13 @@ function App() {
             {...props}
             component={Home}
           />
+          <Route
+            path='/register'
+            render={() => <Register getUser={getUser} {...props} />}></Route>
+          <Route
+            path='/'
+            exact
+            render={() => <Index getUser={getUser} {...props} />}></Route>
         </Container>
       </Router>
     </>
