@@ -1,24 +1,56 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
-
+import { Container } from 'react-bootstrap';
+import { Route, HashRouter as Router } from 'react-router-dom';
+import axios from 'axios';
 function App() {
+  const [user, setUser] = useState(undefined);
+
+  const reloadUser = () => {
+    if (user) {
+      axios
+        .get(`/users/${user._id}`)
+        .then((res) => {
+          setUser(res.data);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  const getUser = (token) => {
+    const config = { headers: { Authorization: `bearer ${token}` } };
+    axios.get('/isLoggedIn', config).then((res) => {
+      axios.get(`/users/${res.data.user_id}`).then((res) => {
+        setUser(res.data);
+      });
+    });
+  };
+
+  useEffect(() => {
+    const token =
+      localStorage.getItem('token') || document.cookie.split('=')[1];
+    if (token) {
+      localStorage.setItem('token', token);
+      getUser(token);
+    }
+  }, []);
+
+  const props = { user, reloadUser, setUser };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Container style={{ minHeight: '100vh' }} fluid className='p-0'>
+          <ProtectedRoute
+            exact
+            path='/home'
+            setUser={setUser}
+            {...props}
+            component={Home}
+          />
+        </Container>
+      </Router>
+    </>
   );
 }
 
