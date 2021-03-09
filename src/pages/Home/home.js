@@ -1,9 +1,9 @@
 import React from 'react';
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import { Container, Row, Col } from 'reactstrap';
-import { NavItem, RoundImage, NoPostsDiv, FakeLink } from './Home.components';
-import { Navbar, PostForm, Post, LoadingOverlay } from '../../Components';
+import { Container, Row, Col } from 'react-bootstrap';
+//import { NavItem, RoundImage, NoPostsDiv, FakeLink } from './Home.components';
+//import { Navbar } from '../../Components';
 import { Link } from 'react-router-dom';
 
 function Home({ setUser, user, reloadUser }) {
@@ -20,7 +20,9 @@ function Home({ setUser, user, reloadUser }) {
 
   return (
     <>
-      <Container fluid></Container>
+      <Container fluid>
+        <h1>This works</h1>
+      </Container>
     </>
   );
 }
