@@ -3,7 +3,7 @@ import './App.css';
 import { Container } from 'react-bootstrap';
 import { Route, HashRouter as Router } from 'react-router-dom';
 import axios from 'axios';
-import { Index, Home, Register, ProtectedRoute } from './Pages';
+import { Index, Home, Register, ProtectedRoute } from './pages';
 function App() {
   const [user, setUser] = useState(undefined);
 

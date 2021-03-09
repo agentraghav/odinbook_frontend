@@ -1,0 +1,15 @@
+.nav-custom {
+  background-color: #0082e6;
+}
+
+.logo {
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+
+.link-set {
+  font-weight: bold;
+  color: white;
+}

@@ -1,8 +1,16 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
-import { Form, Container } from 'react-bootstrap';
-import { FlashMessage } from './index.components';
+import {
+  Form,
+  Container,
+  Col,
+  FormGroup,
+  Button,
+  Alert,
+} from 'react-bootstrap';
+import './styles.css';
+import NavBar from '../../components/NavBar/navbar';
 
 export default function Index({ getUser, user }) {
   const location = useHistory();
@@ -28,45 +36,49 @@ export default function Index({ getUser, user }) {
 
   return (
     <>
-      <Container>
-        <FlashMessage>{message}</FlashMessage>
-        <Form onSubmit={(e) => submitHandler(e)}>
-          <Form.Group controlId='exampleForm.ControlInput1'>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              onChange={(e) => setEmail(e.target.value)}
-              type='email'
-              placeholder='name@example.com'
-            />
-          </Form.Group>
+      <NavBar />
+      <Container fluid>
+        <Col className='box'>
+          <h2 className='heading'>Log In</h2>
+          {message && <Alert variant='danger'>{message}</Alert>}
+          <Form className='form-style' onSubmit={(e) => submitHandler(e)}>
+            <Form.Group controlId='exampleForm.ControlInput1'>
+              <Form.Label className='set-color'>Email address</Form.Label>
+              <Form.Control
+                onChange={(e) => setEmail(e.target.value)}
+                type='email'
+                placeholder='name@example.com'
+              />
+            </Form.Group>
 
-          <Form.Group controlId='formPlaintextPassword'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              onChange={(e) => setPassword(e.target.value)}
-              type='password'
-              placeholder='Password'
-            />
-          </Form.Group>
-          <FormGroup>
-            <Button variant='primary' type='submit'>
-              Log In
-            </Button>
-          </FormGroup>
-        </Form>
-        <Link to='/register'>
-          <Button variant='primary'>Create Account</Button>
-        </Link>
-        <div className='text-center mt-2'>
-          <a
-            href={
-              process.env.NODE_ENV === 'development'
-                ? 'http://localhost:5000/auth/facebook'
-                : ''
-            }>
-            <Button color='primary'>Login with Facebook</Button>
-          </a>
-        </div>
+            <Form.Group controlId='formPlaintextPassword'>
+              <Form.Label className='set-color'>Password</Form.Label>
+              <Form.Control
+                onChange={(e) => setPassword(e.target.value)}
+                type='password'
+                placeholder='Password'
+              />
+            </Form.Group>
+            <FormGroup>
+              <Button className='but-color' type='submit'>
+                Log In
+              </Button>
+            </FormGroup>
+          </Form>
+          <Link to='/register'>
+            <Button className='but-color'>Create Account</Button>
+          </Link>
+          <div className='text-center mt-2'>
+            <a
+              href={
+                process.env.NODE_ENV === 'development'
+                  ? 'http://localhost:5000/auth/facebook'
+                  : ''
+              }>
+              <Button className='but-color'>Login with Facebook</Button>
+            </a>
+          </div>
+        </Col>
       </Container>
     </>
   );
