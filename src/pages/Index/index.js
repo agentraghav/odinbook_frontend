@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
-import { Form, FormControl, Container } from 'react-bootstrap';
-import { FlashMessage } from './Index.components';
+import { Form, Container } from 'react-bootstrap';
+import { FlashMessage } from './index.components';
 
 export default function Index({ getUser, user }) {
   const location = useHistory();
