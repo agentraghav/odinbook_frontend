@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import { Card, Form, FormControl, Button } from 'react-bootstrap';
 function PostForm() {
+  const [message, setMessage] = useState('');
+  const [post, setPost] = useState('');
   const location = useHistory();
   const submitHandler = (e) => {
     axios

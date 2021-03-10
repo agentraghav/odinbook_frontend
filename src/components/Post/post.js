@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Form, Button } from 'react-bootstrap';
+import { Col, Card, Form, Button } from 'react-bootstrap';
 function Post() {
   return (
     <>

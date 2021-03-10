@@ -36,10 +36,10 @@ export default function Index({ getUser, user }) {
 
   return (
     <>
-      <NavBar />
       <Container fluid>
         <Col className='box'>
-          <h2 className='heading'>Log In</h2>
+          <h2 className='heading-abv'>Odin Book</h2>
+          <h2 className='heading'>Log In </h2>
           {message && <Alert variant='danger'>{message}</Alert>}
           <Form className='form-style' onSubmit={(e) => submitHandler(e)}>
             <Form.Group controlId='exampleForm.ControlInput1'>

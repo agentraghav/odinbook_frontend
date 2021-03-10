@@ -56,7 +56,7 @@ function App() {
           <Route
             path='/'
             exact
-            render={() => <Home getUser={getUser} {...props} />}></Route>
+            render={() => <Index getUser={getUser} {...props} />}></Route>
         </Container>
       </Router>
     </>

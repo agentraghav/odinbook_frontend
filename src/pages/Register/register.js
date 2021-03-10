@@ -49,7 +49,6 @@ function Register({ user, reloadUser, getUser }) {
 
   return (
     <>
-      <NavBar />
       <Container fluid>
         <Col className='box-2'>
           <h2 className='heading'>Register</h2>
