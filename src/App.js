@@ -49,13 +49,14 @@ function App() {
             {...props}
             component={Home}
           />
+
           <Route
             path='/register'
             render={() => <Register getUser={getUser} {...props} />}></Route>
           <Route
             path='/'
             exact
-            render={() => <Index getUser={getUser} {...props} />}></Route>
+            render={() => <Home getUser={getUser} {...props} />}></Route>
         </Container>
       </Router>
     </>

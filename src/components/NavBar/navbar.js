@@ -9,7 +9,7 @@ function NavBar() {
           OdinBook
         </Navbar.Brand>
         <Nav className='mr-auto'>
-          <Nav.Link className='link-set' href='#home'>
+          <Nav.Link className='link-set' href='/home'>
             Home
           </Nav.Link>
           <Nav.Link className='link-set' href='#features'>
