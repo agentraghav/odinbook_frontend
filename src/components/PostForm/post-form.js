@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { Card, Form, FormControl, Button } from 'react-bootstrap';
+import { Card, Form, FormControl, Button, Alert } from 'react-bootstrap';
 function PostForm() {
   const [message, setMessage] = useState('');
   const [post, setPost] = useState('');
@@ -25,6 +25,7 @@ function PostForm() {
           marginBottom: '30px',
           marginTop: '20px',
         }}>
+        {message && <Alert variant='danger'>{message}</Alert>}
         <Card.Body>
           <Card.Title>What's on your mind ?</Card.Title>
 
