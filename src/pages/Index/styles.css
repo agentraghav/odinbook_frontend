@@ -1,0 +1,41 @@
+body {
+  background-color: #ebeff0;
+}
+
+.box {
+  width: 700px;
+  background: #0082e6;
+  padding-top: 30px;
+  width: 500px;
+  height: 500px;
+  margin-left: 390px;
+  margin-top: 20px;
+  transition-duration: 0.5s;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  margin-left: 30%;
+  margin-right: 20%;
+}
+
+.heading {
+  color: white;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading-abv {
+  color: white;
+  text-align: center;
+}
+
+.set-color {
+  color: white;
+}
+
+.but-color {
+  background-color: #6cb4ee;
+}
